@@ -1,0 +1,53 @@
+## SQL Queries Used
+
+### Total Sales
+
+```sql
+SELECT SUM(Sales) AS Total_Sales
+FROM sales_data;
+```
+
+### Total Profit
+
+```sql
+SELECT SUM(Profit) AS Total_Profit
+FROM sales_data;
+```
+
+### Monthly Sales Trend
+
+```sql
+SELECT Month, SUM(Sales) AS Monthly_Sales
+FROM sales_data
+GROUP BY Month
+ORDER BY Month;
+```
+
+### Top 5 Products by Sales
+
+```sql
+SELECT Product, SUM(Sales) AS Total_Sales
+FROM sales_data
+GROUP BY Product
+ORDER BY Total_Sales DESC
+LIMIT 5;
+```
+
+### Regional Performance
+
+```sql
+SELECT Region,
+SUM(Sales) AS Total_Sales,
+SUM(Profit) AS Total_Profit
+FROM sales_data
+GROUP BY Region;
+```
+
+### Category-wise Sales
+
+```sql
+SELECT Category,
+SUM(Sales) AS Total_Sales
+FROM sales_data
+GROUP BY Category;
+```
